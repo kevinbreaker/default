@@ -30,7 +30,11 @@
           :id="'tab-' + i"
         >
           <v-card flat>
-            Lorem ipsum
+            <div v-if="i === 1"><lista-saques title="Saques"></lista-saques></div>
+            <div v-if="i === 2"><lista-depositos title="Depósitos"></lista-depositos></div>
+            <div v-if="i === 3"><lista-clientes title="Clientes"></lista-clientes></div>
+            <div v-if="i === 4"><lista-transferencias title="Transações"></lista-transferencias></div>
+            <div v-if="i === 5"></div>
           </v-card>
         </v-tabs-content>
       </v-tabs-items>
@@ -39,15 +43,25 @@
 </template>
 
 <script>
+import listaClientes from './backComponents/clientes'
+import listaSaques from './backComponents/saques'
+import listaDepositos from './backComponents/depositos'
+import listaTransferencias from './backComponents/transferencias'
+
 export default {
   data () {
     return {
       search: null,
       items: [
-        'saques', 'clientes', 'transações', 'estatísticas'
-      ],
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        'saques', 'depósitos', 'clientes', 'transações', 'estatísticas'
+      ]
     }
+  },
+  components: {
+    listaClientes,
+    listaSaques,
+    listaDepositos,
+    listaTransferencias
   },
   mounted () {
     // TODO pegar dados do admin
