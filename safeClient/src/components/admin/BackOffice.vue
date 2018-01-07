@@ -1,18 +1,17 @@
 <template>
   <div>
     <v-tabs dark grow>
-      <v-toolbar class="cinza" color="" dark>
+      <v-toolbar color="grey darken-3" dark>
         <v-toolbar-title>
-          <img src="https://api.asm.skype.com/v1/objects/0-eus-d2-364bcbd10267f7604b3edb4dcd40d8ae/views/imgpsh_fullsize" alt="" width="80px">
+          <img src="../../../imgs/safeFounds.png" alt="" width="80px">
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-text-field placeholder="Procurar" v-model="search" hide-details dark single-line>
-        </v-text-field>
+        <h2><i>Marcos sliva</i></h2>
          <v-spacer></v-spacer>
         <v-btn icon>
         <v-icon>more_vert</v-icon>
         </v-btn>
-        <v-tabs-bar class="cinza" slot="extension">
+        <v-tabs-bar color="grey darken-3" slot="extension">
           <v-tabs-slider color="yellow"></v-tabs-slider>
           <v-tabs-item
             v-for="(item, i) in items"
@@ -74,7 +73,7 @@ export default {
 div{
 
 }
-.cinza{
-  background: #323136;
+h2{
+  color:white;
 }
 </style>
