@@ -12,13 +12,17 @@ const sequelize = new Sequelize(
   config.db.options
 )
 
-fs.readdirSync(__dirname).filter((file) => file !== 'index.js')
-  .forEach((file) => {
-    const model = sequelize.import(path.join(__dirname, file))
-    db[model.name] = model
-  })
-
 db.sequelize = sequelize
 db.Sequelize = Sequelize
+
+db.user = require('./user')(sequelize, Sequelize)
+db.trs = require('./trasactions')(sequelize, Sequelize)
+db.mt4 = require('./mt4')(sequelize, Sequelize)
+db.admin = require('./admin')(sequelize, Sequelize)
+
+// relations
+db.trs.belongsTo(db.user, {
+  foreignKey: 'user_id'
+})
 
 module.exports = db

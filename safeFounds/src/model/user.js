@@ -1,5 +1,6 @@
 const promise = require('bluebird')
 const bcrypt = promise.promisifyAll(require('bcrypt-nodejs'))
+// const trs = require('./trasactions')
 
 function hashPassword (user, options) {
   const SALT_FACTOR = 8
@@ -49,6 +50,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     comentarioAgente: {
       type: DataTypes.TEXT
+    },
+    logado: {
+      type: DataTypes.BOOLEAN
     },
     codigoPromo: {
       type: DataTypes.INTEGER,
