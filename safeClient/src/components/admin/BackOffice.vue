@@ -7,10 +7,18 @@
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <h2><i>Marcos sliva</i></h2>
-         <v-spacer></v-spacer>
-        <v-btn icon>
-        <v-icon>more_vert</v-icon>
-        </v-btn>
+          <v-spacer></v-spacer>
+         <!--  -->
+          <div class="text-xs-center">
+            <v-menu offset-y>
+              <v-btn fab small dark slot="activator"><v-icon>more_vert</v-icon></v-btn>
+              <v-list>
+                <v-list-tile class="lista">
+                  <v-list-tile-title>Log Out</v-list-tile-title>
+                </v-list-tile>
+              </v-list>
+            </v-menu>
+          </div>
         <v-tabs-bar color="grey darken-3" slot="extension">
           <v-tabs-slider color="yellow"></v-tabs-slider>
           <v-tabs-item
@@ -52,7 +60,7 @@ export default {
     return {
       search: null,
       items: [
-        'saques', 'depósitos', 'clientes', 'transações', 'estatísticas'
+        'saques', 'depósitos', 'clientes', 'transações', 'estatísticas', 'Criar Admin'
       ]
     }
   },
@@ -70,8 +78,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-div{
-
+.lista:hover{
+  background: lightgrey;
+  cursor: pointer;
 }
 h2{
   color:white;

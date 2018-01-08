@@ -22,7 +22,19 @@
                 <td class="text-xs-center">{{ props.item.tipo }}</td>
                 <td class="text-xs-center">{{ props.item.aprovador }}</td>
                 <td class="text-xs-center">{{ props.item.data }}</td>
-                <td class="text-xs-center"><v-btn slot="dropdown-menu">Opções</v-btn></td>
+                <td class="text-xs-center">{{ props.item.valor }}</td>
+                <td class="text-xs-center">
+                  <div class="text-xs-center">
+                    <v-menu offset-y>
+                      <v-btn color="info" dark slot="activator">Opções</v-btn>
+                      <v-list>
+                        <v-list-tile>
+                          <v-list-tile-title>visualizar</v-list-tile-title>
+                        </v-list-tile>
+                      </v-list>
+                    </v-menu>
+                  </div>
+                </td>
             </template>
             <template slot="pageText" slot-scope="{ pageStart, pageStop }">
                 <!-- From {{ pageStart }} to {{ pageStop }} -->
@@ -46,7 +58,8 @@ export default {
         { text: 'Cliente', align: 'center', sortable: false, value: 'name' },
         { text: 'Tipo', align: 'center', value: 'tipo' },
         { text: 'Aprovador', align: 'center', value: 'aprovador' },
-        { text: 'data', align: 'center', value: 'data' }
+        { text: 'data', align: 'center', value: 'data' },
+        { text: 'valor', align: 'center', value: 'valor' }
       ],
       items: [
         {
@@ -54,42 +67,48 @@ export default {
           name: 'Antônio fulano',
           tipo: 'Débito',
           aprovador: 'Junior',
-          data: '10/12/2016'
+          data: '10/12/2016',
+          valor: 3200.0
         },
         {
           value: false,
           name: 'Bernardo Hazin',
           tipo: 'Crédito',
           aprovador: 'Junior2',
-          data: '02/06/2017'
+          data: '02/06/2017',
+          valor: 200.0
         },
         {
           value: false,
           name: 'Bernardo Hazin',
           tipo: 'Crédito',
           aprovador: 'Junior2',
-          data: '02/06/2017'
+          data: '02/06/2017',
+          valor: 200.0
         },
         {
           value: false,
           name: 'Bernardo Hazin',
           tipo: 'Crédito',
           aprovador: 'Junior2',
-          data: '02/06/2017'
+          data: '02/06/2017',
+          valor: 200.0
         },
         {
           value: false,
           name: 'Bernardo Hazin',
           tipo: 'Crédito',
           aprovador: 'Junior2',
-          data: '02/06/2017'
+          data: '02/06/2017',
+          valor: 200.0
         },
         {
           value: false,
           name: 'Bernardo Hazin',
           tipo: 'Crédito',
           aprovador: 'Junior2',
-          data: '02/06/2017'
+          data: '02/06/2017',
+          valor: 200.0
         }
       ]
     }

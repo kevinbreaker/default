@@ -21,7 +21,39 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique: true
     },
-    password: DataTypes.STRING
+    cpf: {
+      type: DataTypes.STRING,
+      unique: true
+    },
+    pNome: {
+      type: DataTypes.STRING
+    },
+    uNome: {
+      type: DataTypes.STRING
+    },
+    password: DataTypes.STRING,
+    telefone: {
+      type: DataTypes.STRING
+    },
+    cameFrom: {
+      type: DataTypes.STRING
+    },
+    situacao: {
+      type: DataTypes.INTEGER
+    },
+    dataNac: {
+      type: DataTypes.DATEONLY
+    },
+    agente: {
+      type: DataTypes.STRING
+    },
+    comentarioAgente: {
+      type: DataTypes.TEXT
+    },
+    codigoPromo: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    }
   },
   {
     hooks: {

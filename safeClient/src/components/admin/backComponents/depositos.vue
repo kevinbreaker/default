@@ -23,7 +23,18 @@
                 <td class="text-xs-center">{{ props.item.criadoEm }}</td>
                 <td class="text-xs-center">{{ props.item.saldo }}</td>
                 <td class="text-xs-center">{{ props.item.situacao }}</td>
-                <td class="text-xs-center"><v-btn slot="dropdown-menu">Opções</v-btn></td>
+                <td class="text-xs-center">
+                  <div class="text-xs-center">
+                    <v-menu offset-y>
+                      <v-btn color="info" dark slot="activator">Opções</v-btn>
+                      <v-list>
+                        <v-list-tile>
+                          <v-list-tile-title>visualizar</v-list-tile-title>
+                        </v-list-tile>
+                      </v-list>
+                    </v-menu>
+                  </div>
+                </td>
             </template>
             <template slot="pageText" slot-scope="{ pageStart, pageStop }">
                 <!-- From {{ pageStart }} to {{ pageStop }} -->

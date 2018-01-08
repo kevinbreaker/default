@@ -1,5 +1,5 @@
 <template>
-  <v-layout class="background">
+  <v-layout>
     <v-flex xs4 sm4 offset-sm4 mt-5>
       <panel title="Login Administrador">
         <v-text-field
