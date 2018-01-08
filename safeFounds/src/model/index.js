@@ -1,5 +1,3 @@
-const path = require('path')
-const fs = require('fs')
 const config = require('../config/config')
 const Sequelize = require('sequelize')
 
@@ -23,6 +21,10 @@ db.admin = require('./admin')(sequelize, Sequelize)
 // relations
 db.trs.belongsTo(db.user, {
   foreignKey: 'user_id'
+})
+
+db.trs.belongsTo(db.admin, {
+  foreignKey: 'admin_id'
 })
 
 module.exports = db

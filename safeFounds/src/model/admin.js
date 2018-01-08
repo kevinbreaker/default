@@ -17,12 +17,17 @@ function hashPassword (user, options) {
 }
 
 module.exports = (sequelize, DataTypes) => {
-  const Admin = sequelize.define('userAdmin', {
-    email: {
+  const Admin = sequelize.define('user_admin', {
+    username: {
       type: DataTypes.STRING,
-      unique: true
+      unique: true,
+      allowNull: false
     },
-    password: DataTypes.STRING
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    nivelAcesso: DataTypes.INTEGER
   },
   {
     hooks: {

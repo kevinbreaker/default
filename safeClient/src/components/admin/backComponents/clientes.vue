@@ -3,7 +3,7 @@
       <v-card color="blue-grey darken-2" dark>
             <v-card-title>
             <h1>{{ title }}</h1>
-            <v-btn color="green" @click="refresh">refresh</v-btn>
+            <v-btn icon fab small color="green" @click="refresh"><v-icon>refresh</v-icon></v-btn>
             <v-spacer></v-spacer>
             <v-text-field
                 append-icon="search"
@@ -20,7 +20,7 @@
             >
             <template slot="items" slot-scope="props">
                 <td class="text-xs-center">{{ props.item.email}}</td>
-                <td class="text-xs-center">{{ props.item.pNome}}</td>
+                <td class="text-xs-center">{{ props.item.nome}}</td>
                 <td class="text-xs-center">{{ props.item.cpf }}</td>
                 <td class="text-xs-center">{{ props.item.createdAt }}</td>
                 <td class="text-xs-center">{{ props.item.codigoPromo }}</td>

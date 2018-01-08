@@ -17,7 +17,7 @@ function hashPassword (user, options) {
 }
 
 module.exports = (sequelize, DataTypes) => {
-  const mt4 = sequelize.define('Mt4', {
+  const mt4 = sequelize.define('mt4', {
     mt4Id: {
       type: DataTypes.INTEGER,
       unique: true

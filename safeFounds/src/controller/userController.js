@@ -1,11 +1,11 @@
-const {User} = require('../model')
+const {user} = require('../model')
 
 module.exports = {
   async register (req, res) {
     try {
-      const user = await User.create(req.body)
+      const User = await user.create(req.body)
       // TODO - criar conta mt4
-      res.send(user.toJSON())
+      res.send(User.toJSON())
     } catch (e) {
       res.status(400).send({
         error: 'This user already exist!: ' + e.message
@@ -14,7 +14,7 @@ module.exports = {
   },
   async users (req, res) {
     try {
-      const users = await User.findAll({
+      const users = await user.findAll({
         limit: 20
       })
       res.send(users)
