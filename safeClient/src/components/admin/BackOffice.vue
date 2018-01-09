@@ -41,6 +41,7 @@
             <div v-if="i === 2"><lista-depositos title="Depósitos"></lista-depositos></div>
             <div v-if="i === 3"><lista-clientes title="Clientes"></lista-clientes></div>
             <div v-if="i === 4"><lista-transferencias title="Transações"></lista-transferencias></div>
+            <div v-if="i === 5"><estatistics></estatistics></div>
             <div v-if="i === 6"><criar-admin></criar-admin></div>
           </v-card>
         </v-tabs-content>
@@ -55,6 +56,7 @@ import listaSaques from './backComponents/saques'
 import listaDepositos from './backComponents/depositos'
 import listaTransferencias from './backComponents/transferencias'
 import criarAdmin from './backComponents/criarAdmin'
+import estatistics from './backComponents/statistics'
 import axios from 'axios'
 
 export default {
@@ -72,7 +74,8 @@ export default {
     listaSaques,
     listaDepositos,
     listaTransferencias,
-    criarAdmin
+    criarAdmin,
+    estatistics
   },
   mounted () {
     // TODO pegar dados do admin

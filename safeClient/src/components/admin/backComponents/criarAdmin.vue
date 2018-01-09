@@ -2,7 +2,7 @@
   <v-layout>
     <v-flex mt-5 mb-5 xs6 offset-xs3>
       <panel title="Criar Administrador" id="form">
-        <form>
+        <form id="form">
           <v-text-field
             label="Email"
             v-model="email"
@@ -22,6 +22,7 @@
             :append-icon-cb="() => (e1 = !e1)"
             :type="e1 ? 'password' : 'text'"
             counter
+            required
           ></v-text-field>
           <br>
           <v-text-field
@@ -30,6 +31,7 @@
             :rules="rules"
             v-model="cpf"
             clearable
+            required
           ></v-text-field>
           <br>
           <v-select
@@ -81,8 +83,9 @@ export default {
         password: this.password,
         nivelAcesso: this.nivelAcesso
       }
-      console.log(dados.nivelAcesso)
-      await adminService.postAdmin(dados)
+      document.getElementsByTagName('form')[0].checkValidity()
+      ? await adminService.postAdmin(dados)
+      : null
     }
   },
   components: {
