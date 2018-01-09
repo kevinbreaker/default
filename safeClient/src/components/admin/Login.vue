@@ -30,6 +30,8 @@
 
 <script>
 import panel from './globals/panel'
+import adminService from '../../services/adminAuthentication'
+
 export default {
   data: () => ({
 
@@ -38,6 +40,10 @@ export default {
     panel
   },
   methods: {
+    async login (dados) {
+      const loged = await adminService.getAdmin(dados)
+      console.log(loged.data)
+    }
   },
   mounted () {
     // TODO pegar dados do admin

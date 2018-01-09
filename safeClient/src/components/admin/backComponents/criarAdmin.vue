@@ -55,6 +55,8 @@
 
 <script>
 import panel from '../globals/panel'
+import adminService from '../../../services/adminAuthentication'
+
 export default {
   data () {
     return {
@@ -72,13 +74,15 @@ export default {
     }
   },
   methods: {
-    registrar () {
-      console.log({
+    async registrar () {
+      const dados = {
         cpf: this.cpf,
-        email: this.email,
+        username: this.email,
         password: this.password,
         nivelAcesso: this.nivelAcesso
-      })
+      }
+      console.log(dados.nivelAcesso)
+      await adminService.postAdmin(dados)
     }
   },
   components: {
