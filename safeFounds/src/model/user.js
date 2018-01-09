@@ -27,6 +27,9 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       allowNull: false
     },
+    token: {
+      type: DataTypes.STRING
+    },
     nome: {
       type: DataTypes.STRING
     },
@@ -41,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     dataNac: {
-      type: DataTypes.DATEONLY
+      type: DataTypes.STRING
     },
     agente: {
       type: DataTypes.STRING

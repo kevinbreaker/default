@@ -1,17 +1,88 @@
 <template>
   <v-layout>
-    <v-flex xs6 sm6>
-      ola
+    <v-flex mt-5 mb-5 xs6 offset-xs3>
+      <panel title="Criar Administrador" id="form">
+        <form>
+          <v-text-field
+            label="Email"
+            v-model="email"
+            :rules="[v => !!v || 'Preencha este campo']"
+            autofocus
+            clearable
+            required
+          ></v-text-field>
+          <br>
+          <v-text-field
+            name="senha"
+            label="Senha"
+            hint="Pelo menos 8 digitos"
+            v-model="password"
+            :rules="[v => v && v.length >= 8 || 'Pelo menos 8 digitos']"
+            :append-icon="e1 ? 'visibility' : 'visibility_off'"
+            :append-icon-cb="() => (e1 = !e1)"
+            :type="e1 ? 'password' : 'text'"
+            counter
+          ></v-text-field>
+          <br>
+          <v-text-field
+            label="Cpf"
+            type="text"
+            :rules="rules"
+            v-model="cpf"
+            clearable
+          ></v-text-field>
+          <br>
+          <v-select
+            v-bind:items="items"
+            v-model="nivelAcesso"
+            label="Nivel de acesso"
+            data-vv-name="select"
+            required
+          ></v-select>
+          <br>
+          <div class="error" v-if="error">{{error}}</div>
+          <v-btn
+            dark
+            color="grey darken-4"
+            @click="registrar">
+            Registrar
+          </v-btn>
+        </form>
+      </panel>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+import panel from '../globals/panel'
 export default {
   data () {
     return {
-
+      cpf: null,
+      error: null,
+      email: null,
+      password: null,
+      nivelAcesso: null,
+      e1: false,
+      rules: [
+        (v) => !!v || 'Preencha esse campo',
+        (v) => /\d+/.test(v) || 'Cpf inválido'
+      ],
+      items: ['1', '2', '3', '4']
     }
+  },
+  methods: {
+    registrar () {
+      console.log({
+        cpf: this.cpf,
+        email: this.email,
+        password: this.password,
+        nivelAcesso: this.nivelAcesso
+      })
+    }
+  },
+  components: {
+    panel
   },
   mounted () {
     // TODO pegar dados do admin

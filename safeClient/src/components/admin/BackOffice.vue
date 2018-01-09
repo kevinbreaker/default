@@ -6,7 +6,7 @@
           <img src="../../../imgs/safeFounds.png" alt="" width="80px">
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <h2><i>Marcos sliva</i></h2>
+        <h2 v-bind="session">{{session}}</h2>
           <v-spacer></v-spacer>
          <!--  -->
           <div class="text-xs-center">
@@ -32,7 +32,7 @@
       </v-toolbar>
       <v-tabs-items>
         <v-tabs-content
-          v-for="i in 5"
+          v-for="i in 6"
           :key="i"
           :id="'tab-' + i"
         >
@@ -41,7 +41,7 @@
             <div v-if="i === 2"><lista-depositos title="Depósitos"></lista-depositos></div>
             <div v-if="i === 3"><lista-clientes title="Clientes"></lista-clientes></div>
             <div v-if="i === 4"><lista-transferencias title="Transações"></lista-transferencias></div>
-            <div v-if="i === 5"></div>
+            <div v-if="i === 6"><criar-admin></criar-admin></div>
           </v-card>
         </v-tabs-content>
       </v-tabs-items>
@@ -54,11 +54,14 @@ import listaClientes from './backComponents/clientes'
 import listaSaques from './backComponents/saques'
 import listaDepositos from './backComponents/depositos'
 import listaTransferencias from './backComponents/transferencias'
+import criarAdmin from './backComponents/criarAdmin'
+import axios from 'axios'
 
 export default {
   data () {
     return {
       search: null,
+      session: null,
       items: [
         'saques', 'depósitos', 'clientes', 'transações', 'estatísticas', 'Criar Admin'
       ]
@@ -68,10 +71,15 @@ export default {
     listaClientes,
     listaSaques,
     listaDepositos,
-    listaTransferencias
+    listaTransferencias,
+    criarAdmin
   },
   mounted () {
     // TODO pegar dados do admin
+    axios.post('/sessionStatus', 'funcionou')
+    this.session = axios.get('/sessionStatus').then((data) => {
+      return data
+    })
   }
 }
 </script>
@@ -81,8 +89,5 @@ export default {
 .lista:hover{
   background: lightgrey;
   cursor: pointer;
-}
-h2{
-  color:white;
 }
 </style>

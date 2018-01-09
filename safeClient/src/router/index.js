@@ -15,7 +15,7 @@ export default new Router({
     },
     {
       path: '/admin',
-      name: 'backOffice',
+      name: 'Login',
       component: Login
     },
     {

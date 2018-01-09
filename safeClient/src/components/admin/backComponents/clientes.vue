@@ -72,7 +72,6 @@ export default {
     async refresh () {
       try {
         const users = await userService.getUser()
-        console.log('users => ' + JSON.stringify(users.data))
         this.items = users.data
       } catch (e) {
         console.log(e.message)
@@ -82,7 +81,6 @@ export default {
   async mounted () {
     try {
       const users = await userService.getUser()
-      console.log('users => ' + JSON.stringify(users.data))
       this.items = users.data
     } catch (e) {
       console.log(e.message)
@@ -94,7 +92,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1{
-    color: white;
-}
 </style>
